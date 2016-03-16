@@ -397,6 +397,15 @@ lazy val commonSettings = Seq(
     "-Xlint:deprecation",
     "-Xlint:unchecked"
   )},
+  // for the coursier resolutions to be fine
+  dependencyOverrides ++= Set(
+    scalazCore,
+    scalazStream,
+    scalazScalacheckBinding,
+    "com.fasterxml.jackson.core" % "jackson-core" % "2.4.0",
+    "com.fasterxml.jackson.core" % "jackson-annotations" % "2.4.0",
+    "com.fasterxml.jackson.core" % "jackson-databind" % "2.4.0"
+  ),
   resolvers ++= Seq(
     Resolver.typesafeRepo("releases"),
     Resolver.sonatypeRepo("snapshots"),
